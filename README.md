@@ -17,7 +17,7 @@ Proyek ini adalah aplikasi web sederhana untuk melakukan web scraping data obat 
 ### 1. Clone Repo Ini
 
 ```bash
-git clone <URL_REPO_KAMU>
+git clone https://github.com/duro06/BpomObat
 cd BpomObat
 ```
 
