@@ -8,7 +8,7 @@ import { wrapper } from 'axios-cookiejar-support';
  * @param {string} nama Nama produk
  * @param {string} bentuk Bentuk sediaan
  */
-export default async function scrapeBPOM(nama, bentuk) {
+export default async function scrapeBPOM(nama, bentuk,perPage) {
   const browser = await puppeteer.launch({ 
     headless: 'new',
     args: ['--no-sandbox', '--disable-setuid-sandbox']
@@ -56,7 +56,7 @@ export default async function scrapeBPOM(nama, bentuk) {
     'order[0][column]': '0',
     'order[0][dir]': 'asc',
     start: '0',
-    length: '100',
+    length: perPage,
     'search[value]': nama,
     'search[regex]': 'false',
     product_name: '',

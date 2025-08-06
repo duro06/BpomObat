@@ -8,13 +8,14 @@ const PORT = process.env.PORT || 3000;
 app.get('/scrape', async (req, res) => {
   const nama = req.query.nama;
   const bentuk = req.query?.bentuk??'';
+  const perPage = req.query?.per_page??10;
 
   if (!nama) {
     return res.status(400).json({ error: 'Parameter "nama" wajib diisi' });
   }
 
   try {
-    const data = await scrapeBPOM(nama, bentuk);
+    const data = await scrapeBPOM(nama, bentuk,perPage);
     res.json(data);
   } catch (error) {
     console.error('Scraping error:', error.message);
